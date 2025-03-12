@@ -20,3 +20,17 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
         console.error('Error:', error);
     }
 });
+
+// Переключение языка
+function toggleLanguage() {
+    const elements = document.querySelectorAll("[data-en]");
+    const langBtn = document.getElementById("lang-btn");
+
+    const currentLang = langBtn.textContent === "RU" ? "ru" : "en";
+    langBtn.textContent = currentLang === "en" ? "RU" : "EN";
+
+    elements.forEach(el => {
+        el.textContent = el.getAttribute(`data-${currentLang}`);
+    });
+}
+
