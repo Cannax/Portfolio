@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
+    <nav>
+        <a href="index.html" data-en="Home" data-ru="Главная">Home</a>
+        <a href="about.html" data-en="About Me" data-ru="Обо мне">About Me</a>
+        <a href="contact.html" data-en="Contact" data-ru="Контакты">Contact</a>
+        <button onclick="toggleLanguage()" id="lang-btn">RU</button>
+    </nav>
+
+    <section class="content">
         <h1 data-en="About Me" data-ru="Обо мне">About Me</h1>
-        <p data-en="I'm Salahaddin, 16 years old. I love playing basketball and listening to music."
-           data-ru="Я Салахаддин, мне 16 лет. Люблю играть в баскетбол и слушать музыку.">I'm Salahaddin, 16 years old. I love playing basketball and listening to music.</p>
-    </div>
+        <p data-en="My name is Salahaddin, I'm 16 years old. I like playing basketball and listening to music." 
+           data-ru="Меня зовут Салахаддин, мне 16 лет. Мне нравится играть в баскетбол и слушать музыку.">
+           My name is Salahaddin, I'm 16 years old. I like playing basketball and listening to music.
+        </p>
+    </section>
 </body>
 </html>
