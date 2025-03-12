@@ -7,6 +7,15 @@ body {
     text-align: center;
 }
 
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
 nav {
     background-color: #1f1f1f;
     padding: 15px;
