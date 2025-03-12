@@ -1,21 +1,22 @@
-let currentLang = 'en';
-function switchScreen(screenId) {
-    document.querySelectorAll('.screen').forEach(screen => screen.classList.add('hidden'));
-    document.getElementById(screenId).classList.remove('hidden');
-}
-function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'ru' : 'en';
-    document.querySelectorAll('[data-en]').forEach(el => {
-        el.innerText = el.getAttribute(`data-${currentLang}`);
-    });
-}
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
+document.getElementById('contactForm')?.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const response = await fetch('/contact', {
-        method: 'POST',
-        body: JSON.stringify(Object.fromEntries(formData)),
-        headers: {'Content-Type': 'application/json'}
-    });
-    document.getElementById('status').innerText = response.ok ? 'Message sent!' : 'Failed to send';
+    const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+    };
+
+    try {
+        const response = await fetch('http://localhost:3000/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        const result = await response.text();
+        document.getElementById('status').textContent = result;
+        this.reset();
+    } catch (error) {
+        document.getElementById('status').textContent = 'Error sending message';
+        console.error('Error:', error);
+    }
 });
